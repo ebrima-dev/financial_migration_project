@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: legacy_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: legacy_financials
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./sql/source_schema.sql:/docker-entrypoint-initdb.d/source_schema.sql
+
+  postgres:
+    image: postgres:15
+    container_name: modern_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pgpass
+      POSTGRES_DB: modern_financials
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./sql/target_schema.sql:/docker-entrypoint-initdb.d/target_schema.sql
