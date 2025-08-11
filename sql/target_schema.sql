@@ -1,0 +1,1 @@
+-- The PostgreSQL modern schema (clean DB)
