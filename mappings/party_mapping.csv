@@ -1,0 +1,3 @@
+old_party_id,new_party_id,party_type
+CUST001,P001,customer
+VEND001,P002,vendor
