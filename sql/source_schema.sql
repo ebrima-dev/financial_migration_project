@@ -1,7 +1,8 @@
 -- MySQL legacy schema + inserts (the messy DB)
 
 -- SOURCE DATABASE (LEGACY)
-CREATE DATABASE legacy_financials;
+DROP DATABASE IF EXISTS legacy_financials;
+CREATE DATABASE IF NOT EXISTS legacy_financials;
 USE legacy_financials;
 
 -- Accounts Table

@@ -1,7 +1,23 @@
--- The PostgreSQL modern schema (clean DB)
+\connect postgres;
 
--- TARGET DATABASE (MODERN)
+-- Terminate all other connections first
+DO $$
+BEGIN
+   PERFORM pg_terminate_backend(pid)
+   FROM pg_stat_activity
+   WHERE datname = 'modern_financials'
+     AND pid <> pg_backend_pid();
+END;
+$$;
+
+
+-- Drop the database if it exists
+DROP DATABASE IF EXISTS modern_financials;
+
+-- Create the new database
 CREATE DATABASE modern_financials;
+
+-- Connect to the new database
 \c modern_financials;
 
 -- Chart of Accounts
