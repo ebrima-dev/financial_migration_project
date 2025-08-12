@@ -1,5 +1,5 @@
 # Pulls data from source DB
-import pymsql
+import pymysql
 import pandas as pd
 
 def extract_ledger_entries():
