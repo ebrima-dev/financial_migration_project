@@ -64,6 +64,13 @@ CREATE TABLE audit_log (
     details TEXT
 );
 
+-- Test Table
+CREATE TABLE test_table(
+    id INTEGER PRIMARY KEY,
+    input_one VARCHAR(50),
+    input_two VARCHAR(50)
+);
+
 -- Example Trigger: Log every journal entry insert
 CREATE OR REPLACE FUNCTION log_journal_insert()
 RETURNS TRIGGER AS $$
